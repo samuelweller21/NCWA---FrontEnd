@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.history {
+  background-color: bisque;
+  margin-top: 100px;
+  height: 250px;
+  width: 150px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.historyplayer {
+  background-color: bisque;
+  margin-top: 90px;
+  height: 220px;
+  width: 150px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.btnpad {
+  margin: 5px;
+  font-size: 22px;
+}
+
+.historyanalysis {
+  background-color: rgb(255, 255, 255);
+  margin-top: 50px;
+  height: 290px;
+  width: 150px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.analysismoves {
+  background-color: rgb(255, 255, 255);
+  font-size: 20px;
+  margin: 5px 5px 5px 5px;
+  text-align: center;
+}
+
+.divdivision {
+  margin: 5px 5px 5px 5px;
+}

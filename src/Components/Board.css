@@ -1,0 +1,135 @@
+.square {
+    background: #fff;
+    border: 2px solid #999;
+    float: left;
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 70px;
+    height: 70px;
+    margin-right: 0 auto;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    justify-content: end;
+    width: 70px;
+  }
+
+  .squarefaintorange {
+    background: #fff;
+    color: rgb(255, 166, 0);
+    border: 2px solid #999;
+    float: left;
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 70px;
+    height: 70px;
+    margin-right: 0 auto;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    justify-content: end;
+    width: 70px;
+    opacity: 0.3;
+  }
+
+  .squarefaintgreen {
+    background: #fff;
+    color: green;
+    border: 2px solid #999;
+    float: left;
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 70px;
+    height: 70px;
+    margin-right: 0 auto;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    justify-content: end;
+    width: 70px;
+    opacity: 0.3;
+  }
+
+  .squarefaintyellow {
+    background: #fff;
+    color: yellow;
+    border: 2px solid #999;
+    float: left;
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 70px;
+    height: 70px;
+    margin-right: 0 auto;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    justify-content: end;
+    width: 70px;
+    opacity: 0.3;
+  }
+
+  .squarefaintred {
+    background: #fff;
+    color: red;
+    border: 2px solid #999;
+    float: left;
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 70px;
+    height: 70px;
+    margin-right: 0 auto;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    justify-content: end;
+    width: 70px;
+    opacity: 0.3;
+  }
+
+  .labelsR {
+    background: #fff;
+    float: left;
+    font-size: 15px;
+    text-align: center;
+    justify-content: center;
+    width: 70px;
+    border: 2px solid rgb(255, 255, 255);
+  }
+
+  .board-pad {
+    background: #fff;
+    float: left;
+    font-size:20px;
+    text-align: center;
+    justify-content: center;
+    width: 70px;
+    border: 2px solid rgb(255, 255, 255);
+    width: 20px;
+    height: 0px;
+  }
+
+  .labelsC {
+    background: #fff;
+    height: 70px;
+    line-height: 70px;
+    float: left;
+    font-size: 15px;
+    padding: 5;
+    margin-top: -1px;
+    text-align: center;
+    justify-content: center;
+    border: 2px solid rgb(255, 255, 255);
+  }
+
+.square:focus {
+   padding: 0;
+   justify-content: left;
+}
+
+.board-row {
+    margin: 0 auto;
+    clear: both;
+    content: "";
+    justify-content: end;
+    display: table;
+}
