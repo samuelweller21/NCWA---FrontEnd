@@ -50,7 +50,7 @@ class Welcome extends Component {
                     </Row>
 
 
-                    <Row className="justify-content-center">
+                    {/* <Row className="justify-content-center">
                         <Form className="justify-content-center">
                             <Form.Group as={Row} className="justify-content-center" >
 
@@ -65,17 +65,13 @@ class Welcome extends Component {
 
                             </Form.Group>
                         </Form>
-                    </Row>
+                    </Row> */}
 
                     {this.getErrorMessage()}
 
-                    <Row className="justify-content-center py-1">
+                    {/* <Row className="justify-content-center py-1">
                         <Button variant="success" onClick={this.goToTwoPlayerGame}> Play vs Player </Button>
-                    </Row>
-
-                    <Row className="justify-content-center py-1">
-                        <Button variant="success" onClick={this.goToAnalysis}> Analysis </Button>
-                    </Row>
+                    </Row> */}
 
                     {/* <Row className="justify-content-center py-1">
                         <Button variant="success" onClick={() => this.goToComputerGame(true)}> Play new Computer Game as O's </Button>
@@ -87,6 +83,10 @@ class Welcome extends Component {
 
                     <Row className="justify-content-center py-1">
                         {this.showDialog(this.state)}
+                    </Row>
+
+                    <Row className="justify-content-center py-1">
+                        <Button variant="success" onClick={this.goToAnalysis}> Analysis </Button>
                     </Row>
 
                 </Container>
