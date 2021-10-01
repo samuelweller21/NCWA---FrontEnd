@@ -3,16 +3,18 @@ import { Form, Col, Row, Button } from 'react-bootstrap'
 import SWNavBar from './SWNavBar'
 import { History } from 'history'
 import '../App.css'
+import NCService from '../Services/NCService'
 
 export default class Login extends Component {
 
     constructor() {
         super()
-        this.inputRef = createRef()
+        this.state = {username: "", password: ""}
+        this.login = this.login.bind(this)
     }
 
-    componentDidMount() {
-        this.inputRef.current.focus()
+    login() {
+        NCService.login(this.state.username, this.state.password)
     }
 
     render() {
@@ -43,7 +45,7 @@ export default class Login extends Component {
                                     Username
                                 </Form.Label>
                                 <Col sm="10">
-                                    <Form.Control ref={this.inputRef} placeholder="GreatestPlayer123" />
+                                    <Form.Control onChange={e => this.setState({ username: e.target.value })} type="text" type="text" value={this.state.username} placeholder="GreatestPlayer123" />
                                 </Col>
                             </Form.Group>
 
@@ -52,12 +54,12 @@ export default class Login extends Component {
                                     Password
                                 </Form.Label>
                                 <Col sm="10">
-                                    <Form.Control type="password" placeholder="Password" />
+                                    <Form.Control onChange={e => this.setState({ password: e.target.value })} type="text" value={this.state.password} type="password" placeholder="Password" />
                                 </Col>
                             </Form.Group>
 
                             <Form.Group>
-                                <Button> Login </Button>
+                                <Button onClick={this.login}> Login </Button>
                             </Form.Group>
                         </Form>
 

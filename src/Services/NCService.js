@@ -54,12 +54,23 @@ class NCService {
         return 'Basic ' + window.btoa(username + ":" + password)
     }
 
-    setUpAuthentication() {
-        
-        //For now hard code log in details
-        sessionStorage.setItem("authenticatedUser", "sam.weller")
-        this.setUpAxiosInterceptors(this.createBasicAuthToken("sam.weller", "sweller"))
+    login(username, password) {
+        axios.post(this.getDomain() + "/authenticate", {username, password}).then((res) => {
+            sessionStorage.setItem('authenticatedUser', username);
+            this.setUpAxiosInterceptors(this.createJWTtoken(res.data.token))
+        })
     }
+
+    createJWTtoken(token) {
+        return 'Bearer ' + token
+    }
+
+    // setUpAuthentication() {
+        
+    //     //For now hard code log in details
+    //     sessionStorage.setItem("authenticatedUser", "sam.weller")
+    //     this.setUpAxiosInterceptors(this.createBasicAuthToken("sam.weller", "sweller"))
+    // }
 
     //Account system
 

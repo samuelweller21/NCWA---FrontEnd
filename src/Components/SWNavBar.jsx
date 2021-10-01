@@ -113,6 +113,8 @@ class SWNavBar extends Component {
         )
     }
 
+    
+
     render() {
 
         return (
@@ -128,17 +130,17 @@ class SWNavBar extends Component {
 
                 <Nav className="me-auto">
                     <Nav.Link onClick={this.home}>Home</Nav.Link>
-                    <Nav.Link onClick={this.analysis}>Analysis Board</Nav.Link>
                     <Nav.Link onClick={() => this.setState({ dialog: !this.state.dialog })}>Play vs AI</Nav.Link>
+                    <Nav.Link onClick={this.analysis}>Analysis Board</Nav.Link>
                     {this.showDialog(this.state)}
                 </Nav>
 
                 {/* Needs updating for when logged in */}
 
-                <Nav className="ml-auto">
+                {/* <Nav className="ml-auto">
                     <Nav.Link onClick={this.login}>Log In</Nav.Link>
                     <Nav.Link onClick={this.signup}>Sign Up</Nav.Link>
-                </Nav>
+                </Nav> */}
 
             </Navbar>
         )

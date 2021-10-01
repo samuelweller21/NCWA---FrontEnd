@@ -11,11 +11,16 @@ export default class SignUp extends Component {
         super()
         this.state = {
             username: "",
-            password: ""
+            password: "",
+            suggestion: "",
+            accountCreation: "",
+            creationColor: "green"
         }
         this.inputRef = createRef()
         this.handleSignUp = this.handleSignUp.bind(this)
         this.suggest = this.suggest.bind(this)
+        this.getSuggestion = this.getSuggestion.bind(this)
+        this.getAccountCreation = this.getAccountCreation.bind(this)
     }
 
     componentDidMount() {
@@ -36,15 +41,60 @@ export default class SignUp extends Component {
 
     handleSignUp() {
         NCService.sendCreateAccountRequest(this.state.username, this.state.password).then((res) => {
-            console.log(res.data)
-        }).catch((err) => console.log(err))
+            console.log(res)
+            if (res.status === 200) {
+                this.setState({accountCreation: res.data, creationColor: "green"})
+            } else if (res.status === 206) {
+                this.setState({accountCreation: res.data, creationColor: "red"})
+            }
+        }).catch((err) => {
+            console.log(err)
+        })
     }
 
     suggest() {
         NCService.suggestUsername(this.state.username).then((res) => {
-            this.setState({username: res.data});
-            console.log(res)
+            if (res.data === this.state.username) {
+                this.setState({suggestion: "Looks good!"})
+            } else {
+                let str = "Try '" + res.data + "'"
+                this.setState({ username: res.data, suggestion: str})
+            }
         }).catch((err) => console.log(err))
+    }
+
+    getSuggestion() {
+        if (this.state.suggestion === "") {
+            return <> </>
+        } else {
+            return (
+                <Form.Group as={Row} className="mb-3" controlId="formPlaintextUsername">
+                    <Form.Label className="green" column sm="12">
+                        {this.state.suggestion}
+                    </Form.Label>
+                </Form.Group>
+            )
+        }
+    }
+
+    getAccountCreation() {
+        if (this.state.accountCreation === "") {
+            return <> </>
+        } else {
+            if (this.state.creationColor === "green") {
+                return (
+                    <div className="green">
+                        {this.state.accountCreation}
+                    </div>
+                )
+            } else {
+                return (
+                    <div className="red">
+                        {this.state.accountCreation}
+                    </div>
+                )
+            }
+        }
     }
 
     render() {
@@ -73,20 +123,22 @@ export default class SignUp extends Component {
                                 <Form.Label column sm="2">
                                     Username
                                 </Form.Label>
-                                <Col sm="8">
-                                    <Form.Control ref={this.inputRef} onChange={event => this.changeUsername(event)} placeholder="GreatestPlayer123" value={this.state.username}/>
+                                <Col sm="7">
+                                    <Form.Control className="test" ref={this.inputRef} onChange={event => this.changeUsername(event)} placeholder="GreatestPlayer123" value={this.state.username} />
                                 </Col>
                                 <Col sm="2">
-                                    <Button onClick={() => this.suggest()}> Suggest </Button>
+                                    <Button onClick={() => this.suggest()}> Check/Suggest </Button>
                                 </Col>
                             </Form.Group>
+
+                            {this.getSuggestion()}
 
                             <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
                                 <Form.Label column sm="2">
                                     Password
                                 </Form.Label>
                                 <Col sm="10">
-                                    <Form.Control onChange={event => this.changePassword(event)}type="password" placeholder="Password" />
+                                    <Form.Control class="red" onChange={event => this.changePassword(event)} type="password" placeholder="Password" />
                                 </Col>
                             </Form.Group>
 
@@ -95,7 +147,9 @@ export default class SignUp extends Component {
                             </Form.Group>
                         </Form>
 
-                        </div>
+                        {this.getAccountCreation()}
+
+                    </div>
 
                 </div>
 
